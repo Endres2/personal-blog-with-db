@@ -17,8 +17,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-//mongoose.connect("mongodb+srv://"+process.env.USER+":"+process.env.PASSWORD+"@noteapp.0fqvt9x.mongodb.net/?retryWrites=true&w=majority/blogDB").then(() => console.log('Connected!'));
-mongoose.connect("mongodb://127.0.0.1:27017/blogDB").then(() => console.log('Connected!'));
+mongoose.connect("mongodb+srv://"+process.env.USER+":"+process.env.PASSWORD+"@personalblog.rvcwuw4.mongodb.net/?retryWrites=true&w=majority/blogDB").then(() => console.log('Connected!'));
+//mongoose.connect("mongodb://127.0.0.1:27017/blogDB").then(() => console.log('Connected!'));
 
 const blogSchema = mongoose.Schema({
   title: {
