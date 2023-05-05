@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://"+process.env.USER+":"+process.env.PASSWORD+"@personalblog.rvcwuw4.mongodb.net/?retryWrites=true&w=majority/blogDB").then(() => console.log('Connected!'));
+mongoose.connect("mongodb+srv://"+process.env.USER+":"+process.env.PASSWORD+"@personalblog.rvcwuw4.mongodb.net/?retryWrites=true&w=majority/blogDB").then(() => console.log('Connected!')).catch((err)=>{console.log(err)});
 //mongoose.connect("mongodb://127.0.0.1:27017/blogDB").then(() => console.log('Connected!'));
 
 const blogSchema = mongoose.Schema({
@@ -74,7 +74,7 @@ app.post("/compose", function(req, res){
     content: req.body.postBody
   });
 
-  post.save().then(res.redirect("/"));
+  post.save().then(res.redirect("/")).catch((err)=>{console.log(err)});
 
   
 
